@@ -14,42 +14,28 @@ for dat in data:
         date = dat["date"]
         dates = date.split("-")
         months_index = dates[1]
-            #total_precipitation = total_precipitation + int(dat['value'])
+        total_precipitation = total_precipitation + int(dat['value'])
     
         if months_index not in monthly_precipitation:
             monthly_precipitation[months_index] = 0
         monthly_precipitation[dates[1]] += dat["value"]
 
 
+text_list = []
+text_list_relative = []
 for items in  monthly_precipitation :
-    print(items,monthly_precipitation[items] )          
+    text = f'Monthly precipitation in month {items} is {monthly_precipitation[items]}'
+    text_list.append(text)
+    text_relative = f'The relative precipitacion for month {items} is {monthly_precipitation[items]/total_precipitation}'
+    text_list_relative.append(text_relative)
+
+
+print(text_list_relative)
+#print(text_list)         
           
-        
-           # monthly_precipitation[int(dates[1])] = sum(location[int(dates[2])])
-             
-           # for key in location:
-             #   monthly_precipitation [key[1]] = location[key]
 
-            #while location[int(key[1])] > 12:
+print(total_precipitation)
+with open ("results.json", "w", encoding = "utf-8") as file:
+       json.dump(text_list, file, indent = 4)
 
-            
-               
-            #rint(monthly_precipitation)
-
-            
-
-
-
-
-
-
-      #  if dat['date'] == '2010-05':
-         #   monthly_precipitation = monthly_precipitation + int(dat['value'])
-       
-#print(location)
-
-
-
-#print(total_precipitation)
-
-#print(data)
+   
