@@ -32,16 +32,17 @@ with open('precipitation.json') as file:
                 for items in  monthly_precipitation :
                     text = f'Monthly precipitation in month {items} is {monthly_precipitation[items]}'
                     text_list.append(text)
-                    #text_relative = f'The relative precipitacion for month {items} is {monthly_precipitation[items]/total_precipitation}'
-                    #text_list_relative.append(text_relative)
+                    text_relative = f'The relative precipitacion for month {items} is {monthly_precipitation[items]/total_precipitation}'
+                    text_list_relative.append(text_relative)
                 
             relative_yearly_precipitation = total_precipitation/all_stations_total_precipitation
 
-        
-        
 
+        
             
-        print(relative_yearly_precipitation)
+             
+            
+        print(data)
     
         #print(all_stations_total_precipitation)
         #print(relative_yearly_precipitation)         
